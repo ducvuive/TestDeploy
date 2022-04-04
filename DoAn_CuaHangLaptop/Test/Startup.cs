@@ -39,7 +39,7 @@ namespace Test
                     googleOptions.ClientId = googleAuthNSection["ClientId"];
                     googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
                     // Cấu hình Url callback lại từ Google (không thiết lập thì mặc định là /signin-google)
-                    googleOptions.CallbackPath = "/dang-nhap-tu-google";
+                    googleOptions.CallbackPath = "/home";
                 });                // thêm provider Google và cấu hình
                 /*.AddFacebook(facebookOptions => { ... });           // thêm provider Facebook và cấu hình*/
 
