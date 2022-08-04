@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Test.Models;
 namespace App.Admin.User
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     public class AddRoleModel : PageModel
     {
         private readonly UserManager<AppUser> _userManager;

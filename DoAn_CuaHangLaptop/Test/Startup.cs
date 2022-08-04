@@ -10,7 +10,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Test.Data;
@@ -20,13 +19,13 @@ namespace Test
 {
     public class Startup
     {
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -40,22 +39,19 @@ namespace Test
                     googleOptions.ClientId = googleAuthNSection["ClientId"];
                     googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
                     // Cấu hình Url callback lại từ Google (không thiết lập thì mặc định là /signin-google)
-                    /*googleOptions.CallbackPath = "/dang-nhap-tu-google";*/
                     googleOptions.CallbackPath = "/dang-nhap-tu-google";
                 });                // thêm provider Google và cấu hình
-            /*.AddFacebook(facebookOptions => { ... });           // thêm provider Facebook và cấu hình*/
+                /*.AddFacebook(facebookOptions => { ... });           // thêm provider Facebook và cấu hình*/
 
             services.AddDbContext<LapTopContext>(options =>
-                //options.UseMySQL("server = ducvuive2.mysql.database.azure.com; UserID  = nvvd; password =Laptop08@; port = 3306; database = laptop"));
-                options.UseMySQL(Environment.GetEnvironmentVariable("DefaultConnection")));
-                   //Configuration.GetConnectionString("DefaultConnection")));
-                   //config.GetConnectionString("default"));
+                options.UseMySQL(
+                    Configuration.GetConnectionString("DefaultConnection")));
             /*services.AddIdentity<AppUser, IdentityRole> ()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<LapTopContext>();
              */
-
+               
             services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<LapTopContext>()
                 .AddDefaultTokenProviders()

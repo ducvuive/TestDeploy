@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Test.Data;
 using Test.Models;
 
+
 namespace Test.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -53,7 +54,6 @@ namespace Test.Areas.Admin.Controllers
             return View(dsHd);
 
         }
-
         // GET: Admin/HoaDon/Details/5
         //public async Task<IActionResult> Details(int? id)
         //{
@@ -101,6 +101,34 @@ namespace Test.Areas.Admin.Controllers
 
             _context.SaveChanges();
             return RedirectToAction("Index", new { trangthai = 0 });
+        }
+        
+        public IActionResult ThongKe()
+        {
+
+            return View();
+        }
+        public IActionResult ThongKePost(int input_nam)
+        {
+            List<Sanpham> listTK = (from temp in (from hd in _context.Hoadon
+                                                  join cthd in _context.Cthd on hd.Mahd equals cthd.Mahd
+                                                  where hd.Ngayhd.Year == input_nam
+                                                  group cthd by cthd.Masp into grp
+                                                  select new
+                                                  {
+                                                      MaSP = grp.Key,
+                                                      Soluong = grp.Sum(cthd => cthd.Soluong)
+                                                  })
+                                    join sp in _context.Sanpham on temp.MaSP equals sp.Masp
+                                    select new Sanpham
+                                    {
+                                        Tensp = sp.Tensp,
+                                        Dongia = sp.Dongia,
+                                        Soluong = temp.Soluong,
+                                    }).ToList();
+            ViewBag.Date = DateTime.Now.ToString("dd/MM/yyyy");
+            return View(listTK);
+            //return Content(input_nam.ToString());
         }
 
         //// GET: Admin/HoaDon/Create
@@ -219,5 +247,6 @@ namespace Test.Areas.Admin.Controllers
         //{
         //    return _context.Hoadon.Any(e => e.Mahd == id);
         //}
+
     }
 }
