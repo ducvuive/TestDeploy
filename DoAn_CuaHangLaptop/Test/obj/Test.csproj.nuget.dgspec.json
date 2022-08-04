@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\FileGit\\TestDeploy\\TestDeploy\\DoAn_CuaHangLaptop\\Test\\Test.csproj": {}
+    "E:\\FileGit\\framework_IS220.M11_11-main\\framework_IS220.M11_11-main\\DoAn_CuaHangLaptop\\Test\\Test.csproj": {}
   },
   "projects": {
-    "E:\\FileGit\\TestDeploy\\TestDeploy\\DoAn_CuaHangLaptop\\Test\\Test.csproj": {
+    "E:\\FileGit\\framework_IS220.M11_11-main\\framework_IS220.M11_11-main\\DoAn_CuaHangLaptop\\Test\\Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\FileGit\\TestDeploy\\TestDeploy\\DoAn_CuaHangLaptop\\Test\\Test.csproj",
+        "projectUniqueName": "E:\\FileGit\\framework_IS220.M11_11-main\\framework_IS220.M11_11-main\\DoAn_CuaHangLaptop\\Test\\Test.csproj",
         "projectName": "Test",
-        "projectPath": "E:\\FileGit\\TestDeploy\\TestDeploy\\DoAn_CuaHangLaptop\\Test\\Test.csproj",
+        "projectPath": "E:\\FileGit\\framework_IS220.M11_11-main\\framework_IS220.M11_11-main\\DoAn_CuaHangLaptop\\Test\\Test.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "E:\\FileGit\\TestDeploy\\TestDeploy\\DoAn_CuaHangLaptop\\Test\\obj\\",
+        "outputPath": "E:\\FileGit\\framework_IS220.M11_11-main\\framework_IS220.M11_11-main\\DoAn_CuaHangLaptop\\Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

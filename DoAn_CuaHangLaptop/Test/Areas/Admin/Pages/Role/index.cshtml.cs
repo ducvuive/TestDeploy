@@ -11,7 +11,7 @@ using Test.Data;
 
 namespace App.Admin.Role
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
  
     public class IndexModel : RolePageModel
     {
