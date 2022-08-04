@@ -44,14 +44,15 @@ namespace Test
                 /*.AddFacebook(facebookOptions => { ... });           // thêm provider Facebook và cấu hình*/
 
             services.AddDbContext<LapTopContext>(options =>
-                options.UseMySQL(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                /*options.UseMySQL(
+                    Configuration.GetConnectionString("DefaultConnection")));*/
+            options.UseMySQL(Environment.GetEnvironmentVariable("DefaultConnection")));
             /*services.AddIdentity<AppUser, IdentityRole> ()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<LapTopContext>();
              */
-               
+
             services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<LapTopContext>()
                 .AddDefaultTokenProviders()
